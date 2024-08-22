@@ -10,6 +10,25 @@ const Banner = () => {
     <div className="carousel w-full">
       <div id="slide1" className="carousel-item relative max-h-[70vh] w-full">
         <img src={image1} className="w-full " />
+        <div className="absolute left-5 right-5 bottom-0 flex -translate-y-1/2 transform gap-5">
+          <div className="text-white">
+            <h2 className="text-5xl font-bold">
+              Affordable Price For Car Servicing
+            </h2>
+            <p>
+              There are many variations of passages of available, but the
+              majority have suffered alteration in some form
+            </p>
+            <div className="">
+              <button className="btn mr-5 bg-themeColor text-white font-semibold border-none hover:text-themeColor">
+                Discover More
+              </button>
+              <button className="btn btn-outline text-white font-semibold">
+                Latest Project
+              </button>
+            </div>
+          </div>
+        </div>
         <div className="absolute left-5 right-5 bottom-0 flex -translate-y-1/2 transform justify-end gap-5">
           <a
             href="#slide6"
@@ -17,7 +36,10 @@ const Banner = () => {
           >
             ❮
           </a>
-          <a href="#slide2" className="btn bg-[#FF3811] border-none btn-circle">
+          <a
+            href="#slide2"
+            className="btn bg-[#FF3811] text-white border-none btn-circle"
+          >
             ❯
           </a>
         </div>
