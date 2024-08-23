@@ -1,14 +1,22 @@
 import { useLoaderData } from "react-router-dom";
 import TopBar from "../Shared/TopBar/TopBar";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Checkout = () => {
+  const { user } = useContext(AuthContext);
+
   const serviceData = useLoaderData();
-  console.log(serviceData);
+  const handleBookService = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    // const name =
+  };
   return (
     <div>
       <TopBar img={serviceData.img}></TopBar>
       <div className="px-12">
-        <form className="card-body">
+        <form onSubmit={handleBookService} className="card-body">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label">
