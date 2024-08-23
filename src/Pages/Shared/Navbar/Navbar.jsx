@@ -27,9 +27,14 @@ const Navbar = () => {
         </li>
       )}
       {user && (
-        <li onClick={handleLogout}>
-          <Link>Logout</Link>
-        </li>
+        <>
+          <li>
+            <Link to={"/bookings"}>My Bookings</Link>
+          </li>
+          <li onClick={handleLogout}>
+            <Link>Logout</Link>
+          </li>
+        </>
       )}
     </>
   );
@@ -69,7 +74,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-outline btn-warning">Button</a>
+        <a className="btn btn-outline bg-themeColor border-none text-white hover:text-themeColor">
+          Button
+        </a>
       </div>
     </div>
   );
