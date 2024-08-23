@@ -16,7 +16,7 @@ const Checkout = () => {
     const email = form.email.value;
     const order = {
       customerName: name,
-      email,
+      email: user.email,
       phone,
       date,
       service_id: serviceData._id,
@@ -57,7 +57,7 @@ const Checkout = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Last Name</span>
+                <span className="label-text">Date</span>
               </label>
               <input
                 type="date"
@@ -87,6 +87,7 @@ const Checkout = () => {
                 type="email"
                 placeholder="Your Email"
                 name="email"
+                defaultValue={user.email}
                 className="input input-bordered"
                 required
               />
