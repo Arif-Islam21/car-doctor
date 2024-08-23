@@ -1,9 +1,11 @@
-import img from "../../../assets/images/services/1.jpg";
-
-const TopBar = () => {
+const TopBar = ({ img }) => {
   return (
     <div className="relative bg-gradient-to-r from-[#151515] rounded-xl to-[#1515150b]">
-      <img src={img} className="max-h-96 rounded-xl w-full" alt="" />
+      <img
+        src={img ? img : "img not found"}
+        className="max-h-96 min-h-40 rounded-xl w-full"
+        alt="img not found"
+      />
       <div className="absolute top-1/2 left-5">
         <h2 className="lg:text-5xl -translate-y-1/2 text-2xl font-bold text-white">
           Check Out
