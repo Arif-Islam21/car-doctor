@@ -10,7 +10,32 @@ const Checkout = () => {
   const handleBookService = (e) => {
     e.preventDefault();
     const form = e.target;
-    // const name =
+    const name = form.name.value;
+    const date = form.date.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const order = {
+      customerName: name,
+      email,
+      phone,
+      date,
+      service_id: serviceData._id,
+      service_title: serviceData.title,
+      service_img: serviceData.img,
+      price: serviceData.price,
+    };
+
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <div>
@@ -35,9 +60,9 @@ const Checkout = () => {
                 <span className="label-text">Last Name</span>
               </label>
               <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
+                type="date"
+                name="date"
+                placeholder="date"
                 className="input input-bordered"
                 required
               />
