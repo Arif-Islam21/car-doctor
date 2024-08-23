@@ -6,6 +6,9 @@ export default {
       colors: {
         themeColor: "#FF3811",
       },
+      perspective: {
+        "10px": "10px",
+      },
     },
   },
   plugins: [require("daisyui")],
