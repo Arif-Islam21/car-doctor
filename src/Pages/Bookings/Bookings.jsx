@@ -16,6 +16,41 @@ const Bookings = () => {
       });
   }, []);
 
+  const handleDelete = (id) => {
+    const proceed = confirm("Are you sure you want to delete");
+    if (proceed) {
+      fetch(`http://localhost:5000/bookings/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("Deleted Successfully");
+            const remaining = bookings.filter((booking) => booking._id !== id);
+            setBookings(remaining);
+          }
+        });
+    }
+  };
+
+  const handleConferm = (id) => {
+    fetch(`http://localhost:5000/bookings/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirmed" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          // update state
+        }
+      });
+  };
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -23,9 +58,7 @@ const Bookings = () => {
         <thead>
           <tr>
             <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
+              <h2>Delete</h2>
             </th>
             <th>Image</th>
             <th>Service Name</th>
@@ -36,7 +69,12 @@ const Bookings = () => {
         </thead>
         <tbody>
           {bookings.map((booking) => (
-            <BookingRow key={booking._id} booking={booking}></BookingRow>
+            <BookingRow
+              key={booking._id}
+              handleDelete={handleDelete}
+              handleConferm={handleConferm}
+              booking={booking}
+            ></BookingRow>
           ))}
         </tbody>
       </table>

@@ -1,14 +1,16 @@
 import React from "react";
 
-const BookingRow = ({ booking }) => {
-  const { customerName, service_title, service_img, email, date, price } =
+const BookingRow = ({ booking, handleDelete, handleConferm }) => {
+  const { customerName, _id, service_title, service_img, email, date, price } =
     booking;
-  console.log(booking);
 
   return (
     <tr>
       <th>
-        <button className="btn btn-circle btn-outline">
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn btn-circle btn-sm btn-outline"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -38,7 +40,12 @@ const BookingRow = ({ booking }) => {
       <td>{email}</td>
       <td>{price}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+        <button
+          onClick={() => handleConferm(_id)}
+          className="btn btn-ghost btn-xs"
+        >
+          Conferm
+        </button>
       </th>
     </tr>
   );
