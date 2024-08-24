@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import BookingRow from "./BookingRow";
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
@@ -26,13 +27,18 @@ const Bookings = () => {
                 <input type="checkbox" className="checkbox" />
               </label>
             </th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th></th>
+            <th>Image</th>
+            <th>Service Name</th>
+            <th>Email</th>
+            <th>Price</th>
+            <th>Status</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {bookings.map((booking) => (
+            <BookingRow key={booking._id} booking={booking}></BookingRow>
+          ))}
+        </tbody>
       </table>
     </div>
   );
