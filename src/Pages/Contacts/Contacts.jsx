@@ -4,7 +4,7 @@ import logo3 from "../../assets/icons/Wrench.svg";
 
 const Contacts = () => {
   return (
-    <div className="min-h-56 flex items-center justify-around px-12 text-white rounded-xl bg-black">
+    <div className="min-h-56 my-12 flex items-center justify-around px-12 text-white rounded-xl bg-black">
       {/* card 1 */}
       <div className="flex gap-4 items-center">
         <img src={logo1} alt="" />
