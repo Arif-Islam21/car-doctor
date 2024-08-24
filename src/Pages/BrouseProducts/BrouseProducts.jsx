@@ -10,8 +10,8 @@ const BrouseProducts = () => {
   return (
     <div className="py-12">
       <div className="text-center">
-        <h4 className="text-themeColor font-bold">Services</h4>
-        <h3 className="text-3xl font-bold">Our Service Area</h3>
+        <h4 className="text-themeColor font-bold">Popular Product</h4>
+        <h3 className="text-3xl font-bold pb-6">Brouse Our Popular Product</h3>
         <p className="text-gray-500 max-w-2xl mx-auto">
           the majority have suffered alteration in some form, by injected
           humour, or randomised words which don't look even slightly believable.{" "}
